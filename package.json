@@ -1,7 +1,7 @@
 {
-  "name": "TableRoomBeta",
+  "name": "nodejs-ex",
   "version": "0.0.1",
-  "description": "The beta test of the table room.",
+  "description": "Node.js sample app for OpenShift 3",
   "main": "server.js",
   "dependencies": {
     "chai": "^3.5.0",
@@ -23,12 +23,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "http://github.com/RogueHogue/TableRoomBeta.git"
+    "url": "http://github.com/openshift/nodejs-ex.git"
   },
-  "author": "Michael Hogue",
-  "license": "",
+  "author": "Steve Speicher <sspeiche@gmail.com>",
+  "license": "CC-BY-1.0",
   "bugs": {
-    "url": "http://github.com/RogueHogue/TableRoomBeta/issues"
+    "url": "http://github.com/openshift/nodejs-ex/issues"
   },
-  "homepage": "http://github.com/RogueHogue/TableRoomBeta"
+  "homepage": "http://github.com/openshift/nodejs-ex"
 }
