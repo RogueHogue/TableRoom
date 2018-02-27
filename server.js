@@ -117,7 +117,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.post('/', function(req, res) {
     console.log(req.body);
-    res.send(200);
+    res.send("Hello!");
     loadView();
 });
 
