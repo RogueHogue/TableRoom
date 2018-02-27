@@ -1,0 +1,33 @@
+<%=
+var specialData = null;    
+
+function switchView(view) {
+    switch (view) {
+        case 1:
+            return 'new-page.ejs';
+            specialData = "NEW PAGE";
+            break;
+        case 2:
+            return 'other-new.ejs';
+            specialData = 'OTHER NEW';
+            break;
+        default:
+            return 'index.ejs';
+            break;
+    }
+}
+%>
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Test app</title>
+    </head>
+    <body>
+        <h1>View change test.</h1>
+        <a href=<%=
+            app.get('/', function (req, res) {
+               res.render(switchView(2), {data: specialData}
+           });
+               %>>Go to new page.</a>
+    </body>
+</html>
