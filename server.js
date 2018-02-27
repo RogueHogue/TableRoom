@@ -57,7 +57,7 @@ var initDb = function(callback) {
   });
 };
 
-app.get('/', function (req, res) {
+app.get('/views', function (req, res) {
     
     var passData = "Hello there."
     
