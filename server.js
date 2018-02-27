@@ -1,7 +1,9 @@
 //  OpenShift sample Node application
 var express = require('express'),
     app     = express(),
-    morgan  = require('morgan');
+    morgan  = require('morgan'),
+    http = require('http'),
+    server = http.createServer(app);
     
 Object.assign=require('object-assign')
 
@@ -101,6 +103,23 @@ app.use(function(err, req, res, next){
 initDb(function(err){
   console.log('Error connecting to Mongo. Message:\n'+err);
 });
+
+///////////////////////(MARK - Client side control//////////////////////////
+
+function loadView() {
+    app.get('/', function(req, res) {
+        res.render('newPage.ejs');
+    });
+}
+
+app.use(express.bodyParser());
+app.post('/', function(req, res) {
+    console.log(req.body);
+    res.send(200);
+    loadView();
+});
+
+////////////////////////////////////////////////////////////////////////////
 
 app.listen(port, ip);
 console.log('Server running on http://%s:%s', ip, port);
