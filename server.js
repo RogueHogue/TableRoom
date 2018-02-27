@@ -94,5 +94,6 @@ initDb(function(err){
 
 app.listen(port, ip);
 console.log('Server running on http://%s:%s', ip, port);
+comsole.log('File was updated');
 
 module.exports = app ;
