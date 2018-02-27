@@ -107,9 +107,9 @@ initDb(function(err){
 
 ///////////////////////(MARK - Client side control//////////////////////////
 
-function loadView() {
+function loadView(sender) {
     app.get('/', function(req, res) {
-        res.render('newPage.ejs');
+        sender.render('/newPage.ejs');
     });
 }
 
@@ -118,7 +118,7 @@ app.use(bodyParser.json());
 app.post('/', function(req, res) {
     console.log(req.body);
     res.send("Hello!");
-    loadView();
+    loadView(res);
 });
 
 ////////////////////////////////////////////////////////////////////////////
