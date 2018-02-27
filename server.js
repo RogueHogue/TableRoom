@@ -1,7 +1,9 @@
 //  OpenShift sample Node application
 var express = require('express'),
     app     = express(),
-    morgan  = require('morgan');
+    morgan  = require('morgan'),
+    http = require('http'),
+    bodyParser = require('body-parser');
     
 Object.assign=require('object-assign')
 
@@ -70,10 +72,10 @@ app.get('/', function (req, res) {
       if (err) {
         console.log('Error running count. Message:\n'+err);
       }
-      res.render('index.html', { pageCountMessage : count, dbInfo: dbDetails });
+      res.render('index.ejs', { pageCountMessage : count, dbInfo: dbDetails });
     });
   } else {
-    res.render('index.html', { pageCountMessage : null});
+    res.render('index.ejs', { pageCountMessage : null});
   }
 });
 
@@ -96,11 +98,18 @@ app.get('/pagecount', function (req, res) {
 app.use(function(err, req, res, next){
   console.error(err.stack);
   res.status(500).send('Something bad happened!');
-});
+});s
 
 initDb(function(err){
   console.log('Error connecting to Mongo. Message:\n'+err);
 });
+
+/////////////////////////MARK - Application API///////////////////////
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+
+//////////////////////////////////////////////////////////////////////
 
 app.listen(port, ip);
 console.log('Server running on http://%s:%s', ip, port);
