@@ -56,7 +56,7 @@ var initDb = function(callback) {
     console.log('Connected to MongoDB at: %s', mongoURL);
   });
 };
-
+/*
 app.get('/', function (req, res) {
     
     var passData = "Hello there."
@@ -82,11 +82,12 @@ app.get('/pagecount', function (req, res) {
   }
 });
 */
-// error handling
+// error handling 
+/*
 app.use(function(err, req, res, next){
   console.error(err.stack);
   res.status(500).send('Something bad happened!');
-});
+});*/
 
 initDb(function(err){
   console.log('Error connecting to Mongo. Message:\n'+err);
