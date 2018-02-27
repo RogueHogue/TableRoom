@@ -1,10 +1,7 @@
 //  OpenShift sample Node application
 var express = require('express'),
     app     = express(),
-    morgan  = require('morgan'),
-    http = require('http'),
-    bodyParser = require('body-parser'),
-    server = http.createServer(app);
+    morgan  = require('morgan');
     
 Object.assign=require('object-assign')
 
@@ -73,10 +70,10 @@ app.get('/', function (req, res) {
       if (err) {
         console.log('Error running count. Message:\n'+err);
       }
-      res.render('index.ejs', { pageCountMessage : count, dbInfo: dbDetails });
+      res.render('index.html', { pageCountMessage : count, dbInfo: dbDetails });
     });
   } else {
-    res.render('index.ejs', { message: "DATA PASSED" });
+    res.render('index.html', { pageCountMessage : null});
   }
 });
 
@@ -104,24 +101,6 @@ app.use(function(err, req, res, next){
 initDb(function(err){
   console.log('Error connecting to Mongo. Message:\n'+err);
 });
-
-///////////////////////(MARK - Client side control//////////////////////////
-
-function loadView(sender) {
-    app.get('/', function(req, res) {
-        sender.render('/newPage.ejs');
-    });
-}
-
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
-app.post('/', function(req, res) {
-    console.log(req.body);
-    res.send("Hello!");
-    loadView(res);
-});
-
-////////////////////////////////////////////////////////////////////////////
 
 app.listen(port, ip);
 console.log('Server running on http://%s:%s', ip, port);
