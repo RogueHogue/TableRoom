@@ -3,6 +3,7 @@ var express = require('express'),
     app     = express(),
     morgan  = require('morgan'),
     http = require('http'),
+    bodyParser = require('body-parser'),
     server = http.createServer(app);
     
 Object.assign=require('object-assign')
@@ -112,7 +113,8 @@ function loadView() {
     });
 }
 
-app.use(express.bodyParser());
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 app.post('/', function(req, res) {
     console.log(req.body);
     res.send(200);
