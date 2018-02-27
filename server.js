@@ -73,7 +73,7 @@ app.get('/', function (req, res) {
       res.render('index.ejs', { pageCountMessage : count, dbInfo: dbDetails });
     });
   } else {
-    res.render('index.ejs', { pageCountMessage : null});
+    res.render('index.ejs', { message: "DATA PASSED" });
   }
 });
 
