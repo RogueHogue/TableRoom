@@ -81,7 +81,7 @@ app.get('/pagecount', function (req, res) {
     res.send('{ pageCount: -1 }');
   }
 });
-*/
+
 // error handling 
 /*
 app.use(function(err, req, res, next){
