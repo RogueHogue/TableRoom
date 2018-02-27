@@ -61,7 +61,7 @@ app.get('/', function (req, res) {
     
     var passData = "Hello there."
     
-    res.render('index.ej', {
+    res.render('index.ejs', {
         title: passData
     });
     
