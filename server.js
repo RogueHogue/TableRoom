@@ -58,12 +58,6 @@ var initDb = function(callback) {
   });
 };
 
-var genreSchema = mongodb.Schema({
-    name:{
-        type: String
-    }
-})
-
 app.get('/', function (req, res) {
   
     res.render('index.ejs', { pageCountMessage : "Getting There" });
