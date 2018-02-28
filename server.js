@@ -58,7 +58,7 @@ var initDb = function(callback) {
   });
 };
 
-var genreSchema = mongoose.Schema({
+var genreSchema = mongodb.Schema({
     name:{
         type: String
     }
