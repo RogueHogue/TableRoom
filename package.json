@@ -20,16 +20,17 @@
   "scripts": {
     "start": "node server.js",
     "test": "IP=0.0.0.0 PORT=3030 mocha --timeout 5000 tests/*_test.js",
-    "install-bp": "nmp install body-parser --save"
+    "install-bp": "nmp install body-parser --save",
+    "install-mongoose": "npm install --save mongoose@4.10.8"
   },
   "repository": {
     "type": "git",
-    "url": "http://github.com/openshift/nodejs-ex.git"
+    "url": "http://github.com/RogueHogue/TableRoomBeta.git"
   },
-  "author": "Steve Speicher <sspeiche@gmail.com>",
-  "license": "CC-BY-1.0",
+  "author": "Michael Hogue",
+  "license": "None",
   "bugs": {
-    "url": "http://github.com/openshift/nodejs-ex/issues"
+    "url": "http://github.com/RogueHogue/TableRoomBeta/issues"
   },
-  "homepage": "http://github.com/openshift/nodejs-ex"
+  "homepage": "http://github.com/RogueHogue/TableRoomBeta"
 }
