@@ -32,6 +32,6 @@ app.use(bodyParser.urlencoded({ extended: false }));
 //////////////////////////////////////////////////////////////////////
 
 app.listen(8080);
-console.log('Server running on http://%s:%s', ip, port);
+console.log('Server running on 8080');
 
 module.exports = app ;
