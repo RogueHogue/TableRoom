@@ -1,37 +1,13 @@
-//  OpenShift sample Node application
-var express = require('express'),
-    app     = express(),
-    morgan  = require('morgan'),
-    http = require('http'),
-    bodyParser = require('body-parser');
-    
+var server_port = process.env.OPENSHIFT_NODEJS_PORT || 8080;
+var server_ip_address = process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1';
 
-
-app.get('/', function (req, res) {
-  
-    res.render('index.ejs', { pageCountMessage : "Getting There" });
-  
+//provide a sensible default for local development
+mongodb_connection_string = 'mongodb://127.0.0.1:27017/' + db_name;
+//take advantage of openshift env vars when available:
+if(process.env.OPENSHIFT_MONGODB_DB_URL){
+  mongodb_connection_string = process.env.OPENSHIFT_MONGODB_DB_URL + db_name;
+}
+ 
+server.listen(server_port, server_ip_address, function () {
+  console.log( "Listening on " + server_ip_address + ", port " + server_port );
 });
-
-
-// error handling
-app.use(function(err, req, res, next){
-  console.error(err.stack);
-  res.status(500).send('Something bad happened!');
-});
-/*
-initDb(function(err){
-  console.log('Error connecting to Mongo. Message:\n'+err);
-});
-*/
-/////////////////////////MARK - Application API///////////////////////
-
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
-
-//////////////////////////////////////////////////////////////////////
-
-app.listen(8080);
-console.log('Server running on 8080');
-
-module.exports = app ;
