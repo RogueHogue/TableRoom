@@ -3,12 +3,7 @@ var express = require('express'),
     app     = express(),
     morgan  = require('morgan'),
     http = require('http'),
-    bodyParser = require('body-parser'),
-    mongoose = require('mongoose');
-
-// Connect to Mongoose
-mongoose.connect(process.env.OPENSHIFT_MONGODB_DB_URL || process.env.MONGO_URL,
-    mongoURLLabel = "")
+    bodyParser = require('body-parser');
     
 Object.assign=require('object-assign')
 
@@ -62,6 +57,12 @@ var initDb = function(callback) {
     console.log('Connected to MongoDB at: %s', mongoURL);
   });
 };
+
+var genreSchema = mongoose.Schema({
+    name:{
+        type: String
+    }
+})
 
 app.get('/', function (req, res) {
   

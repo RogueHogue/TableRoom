@@ -20,8 +20,7 @@
   "scripts": {
     "start": "node server.js",
     "test": "IP=0.0.0.0 PORT=3030 mocha --timeout 5000 tests/*_test.js",
-    "install-bp": "nmp install body-parser --save",
-    "install-mongoose": "npm install --save mongoose@4.10.8"
+    "install-bp": "nmp install body-parser --save"
   },
   "repository": {
     "type": "git",
