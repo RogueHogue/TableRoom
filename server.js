@@ -6,13 +6,13 @@ var express = require('express'),
     bodyParser = require('body-parser');
     
 
-/*
+
 app.get('/', function (req, res) {
   
     res.render('index.ejs', { pageCountMessage : "Getting There" });
   
 });
-*/
+
 
 // error handling
 app.use(function(err, req, res, next){
@@ -31,7 +31,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 //////////////////////////////////////////////////////////////////////
 
-//app.listen(8080);
+app.listen(8080);
 console.log('Server running on http://%s:%s', ip, port);
 
 module.exports = app ;
