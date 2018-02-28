@@ -8,7 +8,7 @@ var express = require('express'),
 
 // Connect to Mongoose
 mongoose.connect(process.env.OPENSHIFT_MONGODB_DB_URL || process.env.MONGO_URL,
-    mongoURLLabel = "";)
+    mongoURLLabel = "")
     
 Object.assign=require('object-assign')
 
